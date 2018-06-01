@@ -44,7 +44,7 @@ def get_errors(year1, year2):
         for appliance in selected_appliance[1:]:
             errors[test_set][appliance] = {}
         
-    for random_seed in range(20):
+    for random_seed in range(50):
 
         print(random_seed)
         # between 2013 and 2014
