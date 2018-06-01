@@ -90,9 +90,8 @@ for year in [2013, 2014, 2015, 2016, 2017]:
     all_tensor[year] = create_tensor(year, data)
 
 
-errors = {}
 case = 2
 
 error = get_errors(year1, year2)
 
-np.save("./error-{}-{}.npy".format(year1, year2), errors)
+np.save("./error-{}-{}.npy".format(year1, year2), error)
