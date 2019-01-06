@@ -15,4 +15,4 @@ conn = db.connect('host=' + database_host +
 
 sql_query = """SELECT * from university.metadata"""
 df = pd.read_sql(sql_query, conn)
-df.to_csv("metadata/metadata.csv", index=False)
+df.to_csv("../metadata/metadata.csv", index=False)
