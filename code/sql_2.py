@@ -22,8 +22,11 @@ total = len(list_of_buildings)
 count = -1
 print(total)
 for building_id in list_of_buildings:
-  count += 1
-  print(count, "/", total)
-  sql_query = """SELECT* FROM university.electricity_egauge_hours WHERE dataid=%d""" %int(building_id)
-  df = pd.read_sql(sql_query, conn)
-  df.to_csv("../metadata/electricity_egauge_hours/%d.csv" %int(building_id))
+    count += 1
+    if count < 500:
+        continue
+    else:
+        print(count, "/", total)
+        sql_query = """SELECT* FROM university.electricity_egauge_hours WHERE dataid=%d""" %int(building_id)
+        df = pd.read_sql(sql_query, conn)
+        df.to_csv("../metadata/electricity_egauge_hours/%d.csv" % int(building_id))

@@ -21,8 +21,11 @@ dst_times.append(('2015-03-08 02:00:00', '2015-03-08 03:00:00'))
 dst_times.append(('2015-11-01 01:00:00', '2015-11-01 02:00:00'))
 dst_times.append(('2016-03-13 02:00:00', '2016-03-13 03:00:00'))
 dst_times.append(('2016-11-06 01:00:00', '2016-11-06 02:00:00'))
-dst_times.append(('2017-03-12 02:00:00', '2016-11-06 03:00:00'))
-dst_times.append(('2017-11-05 01:00:00', '2016-11-06 02:00:00'))
+dst_times.append(('2017-03-12 02:00:00', '2017-03-12 03:00:00'))
+dst_times.append(('2017-11-05 01:00:00', '2017-11-05 02:00:00'))
+dst_times.append(('2018-03-11 02:00:00', '2018-03-11 03:00:00'))
+dst_times.append(('2018-11-04 01:00:00', '2018-11-04 02:00:00'))
+
 
 
 
@@ -42,7 +45,7 @@ fs = file_series[file_series>1000]
 store = pd.HDFStore(HDF_PATH, mode='a', complevel=9, complib='blosc')
 count = 0
 for building_number_csv in fs.index:
-    print "Done %d of %d" %(count, len(fs))
+    print("Done {} of {}".format(count, len(fs)))
     try:
         building_path = os.path.join(FILE_PATH, building_number_csv)
         building_number = int(building_number_csv[:-4])
@@ -83,6 +86,5 @@ for building_number_csv in fs.index:
         # Write in temp HDF5 store
         store.put(str(building_number), df, format='table')
         count = count + 1
-    except Exception, e:
-        print e
-
+    except:
+        print('error')
